@@ -38,15 +38,16 @@ jobs:
           restore-keys: go-vet-
       - name: Run go vet
         run: ./.github/scripts/govet.sh
-  golangci-lint:
-    name: golangci-lint
-    runs-on: ubuntu-latest
-    if: ${{ github.event_name != 'schedule' }}
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-      - name: Run golangci-lint
-        uses: golangci/golangci-lint-action@v2
+#  Enable when go 1.18 is supported
+#  golangci-lint:
+#    name: golangci-lint
+#    runs-on: ubuntu-latest
+#    if: ${{ github.event_name != 'schedule' }}
+#    steps:
+#      - name: Checkout
+#        uses: actions/checkout@v2
+#      - name: Run golangci-lint
+#        uses: golangci/golangci-lint-action@v2
   codeql:
     name: CodeQL
     runs-on: ubuntu-latest

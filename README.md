@@ -12,8 +12,8 @@ go get go.debugged.it/validation
 
 You can then import it:
 
-```
-import go.debugged.it/validation
+```go
+import "go.debugged.it/validation"
 ```
 
 ## Must
@@ -29,3 +29,24 @@ fmt.Println(validation.Must(createWithError()))
 
 // Output: "Hello world!"
 ```
+
+## InSlice
+
+The `InSlice` function searches for elements in slices:
+
+```go
+slice := []string{
+    "a",
+    "b",
+    "c",
+}
+if validation.InSlice(slice, "c") {
+    fmt.Println("Yes, c is in the slice")
+} else {
+    fmt.Println("No, c is not in the slice")
+}
+```
+
+## NotInSlice
+
+The `NotInSlice` function is the inverse of InSlice above.
